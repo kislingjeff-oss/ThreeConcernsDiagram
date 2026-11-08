@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="A clickable diagram of the three concerns about Friends, extraction and reciprocity.">
+<meta name="description" content="A diagram of the three concerns about Friends, extraction and reciprocity, in four parts.">
 <meta name="author" content="Jeff Kisling, member of Bear Creek Meeting, Iowa Yearly Meeting (Conservative)">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Three Concerns Diagram</title>
@@ -103,6 +103,19 @@ blockquote{margin:6px 0 10px;padding:8px 12px;border-left:4px solid var(--blue);
 .ct ul{align-content:start}
 .ct .fig b{font-family:var(--sans);font-variant-numeric:tabular-nums lining-nums}
 .ct li{display:grid;grid-template-columns:minmax(0,1fr);gap:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tabs a{font:600 0.95rem var(--sans);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px 8px 8px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.tabs a .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--blue-soft);font-size:0.8rem}
+.tabs a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs a.on .n{background:#fff;color:var(--ink)}
+.tabs a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.part{display:grid;gap:14px}
+.part.sheet{display:block}
+.part[hidden]{display:none}
+.intro .seg{margin-top:4px}
+.hint{margin:10px 0 0;font-size:0.85rem;color:var(--ink-2)}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:6px 0 10px}
+.trio p{margin:0}
 </style>
 </head>
 <body>
@@ -110,52 +123,67 @@ blockquote{margin:6px 0 10px;padding:8px 12px;border-left:4px solid var(--blue);
 <div class="wrap">
   <header style="display:grid;gap:4px;margin-bottom:14px">
     <h1>Three Concerns Diagram</h1>
-    <p class="lede">Poverty, freedom and violence, seen as one question: which way does it flow, and does it flow back? Choose a view, choose a concern, and select any part of the drawing to read about it.</p>
+    <p class="lede">One community, drawn two ways. Take it one part at a time.</p>
   </header>
+  <nav class="tabs" aria-label="Parts of the diagram">
+    <a href="#flow" data-tab="flow"><span class="n">1</span>Which way it flows</a>
+    <a href="#concerns" data-tab="concerns"><span class="n">2</span>The three concerns</a>
+    <a href="#why-now" data-tab="why-now"><span class="n">3</span>Why now?</a>
+    <a href="#direction" data-tab="direction"><span class="n">4</span>A new direction</a>
+  </nav>
 
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Which state to show">
-      <button type="button" id="s-x" data-s="x" aria-pressed="true">Extraction</button>
-      <button type="button" id="s-r" data-s="r" aria-pressed="false">Reciprocity</button>
-      <button type="button" id="s-b" data-s="b" aria-pressed="false">Both</button>
-    </div>
-    <div class="seg" role="group" aria-label="Which concern to show">
-      <button type="button" id="f-all" data-f="" aria-pressed="true">All three</button>
-      <button type="button" id="f-poverty" data-f="poverty" aria-pressed="false"><span class="sw" style="background:var(--poverty)"></span>Poverty</button>
-      <button type="button" id="f-freedom" data-f="freedom" aria-pressed="false"><span class="sw" style="background:var(--freedom)"></span>Freedom</button>
-      <button type="button" id="f-violence" data-f="violence" aria-pressed="false"><span class="sw" style="background:var(--violence)"></span>Violence</button>
-    </div>
-  </div>
-
-  <div class="main">
-    <section class="sheet" aria-label="Diagram">
-      <div id="panels" class="panels"></div>
-      <div class="legend" style="margin-top:10px">
-        <span><span class="sw" style="background:var(--poverty)"></span>Sacks and crates: food and goods</span>
-        <span><span class="sw" style="background:var(--freedom)"></span>Green fields: land and labor</span>
-        <span><span class="sw" style="background:var(--violence)"></span>Red: guards and barbed wire (force)</span>
-        <span><span class="sw" style="background:var(--blue)"></span>Blue: neighbors, both ways</span>
+  <section class="part" data-part-of="flow" aria-label="Which way it flows">
+    <div class="intro sheet">
+      <h2>Which way does it flow?</h2>
+      <p><b>Extraction</b> is taking, with nothing fair coming back. <b>Reciprocity</b> is giving and receiving, both ways, and keeping it going. Look at one, then the other.</p>
+      <div class="seg" role="group" aria-label="Which picture to show">
+        <button type="button" id="s-x" data-s="x" aria-pressed="true">Extraction</button>
+        <button type="button" id="s-r" data-s="r" aria-pressed="false">Reciprocity</button>
+        <button type="button" id="s-b" data-s="b" aria-pressed="false">Both</button>
       </div>
-    </section>
-    <aside class="sheet card" id="card" aria-live="polite"></aside>
-  </div>
+    </div>
+    <div class="sheet"><div id="flowpanels" class="panels"></div><p class="hint">Select any part of the picture to read about it.</p></div>
+    <div class="sheet card" id="flowcard" aria-live="polite"></div>
+  </section>
 
-  <section class="sheet" style="margin-top:18px">
-    <h2>Why this cannot wait</h2>
-    <p>Each of the three concerns is setting records at the same time. The lines show which concern each record belongs to.</p>
+  <section class="part" data-part-of="concerns" aria-label="The three concerns">
+    <div class="intro sheet">
+      <h2>The three concerns</h2>
+      <p>Each of my three concerns about Friends is one kind of taking. Choose one to see where it sits in the picture.</p>
+      <div class="seg" role="group" aria-label="Which concern to show">
+        <button type="button" id="f-poverty" data-f="poverty" aria-pressed="true"><span class="sw" style="background:var(--poverty)"></span>1. Poverty</button>
+        <button type="button" id="f-freedom" data-f="freedom" aria-pressed="false"><span class="sw" style="background:var(--freedom)"></span>2. Freedom</button>
+        <button type="button" id="f-violence" data-f="violence" aria-pressed="false"><span class="sw" style="background:var(--violence)"></span>3. Violence</button>
+      </div>
+    </div>
+    <div class="sheet"><div id="concernpanels" class="panels"></div></div>
+    <div class="sheet card" id="concerncard" aria-live="polite"></div>
+  </section>
+
+  <section class="part sheet" data-part-of="why-now" aria-label="Why now">
+    <h2 class="why-h">Why now?</h2>
+    <p class="why-lede">Each of my three concerns about Friends is setting records at the same time. The lines show which concern each record belongs to.</p>
     <div class="map-wrap" id="tiemap"></div>
     <div id="ties"></div>
-    <div class="callout" style="margin-top:14px">
-      <p><b>Records are being set at the same time, and the measuring is being taken away.</b> USDA ended the food security report after its 2024 data.</p>
-      <p><b>Channels take years to build.</b> The relationships that let a community meet its own needs cannot be started on the day they are needed. The moment they are needed is not the moment to begin.</p>
+    <div class="reasons">
+      <div><b>Every concern at once.</b> Hunger, wealth at the top, homelessness and detention are all at or near records together, and they feed each other.</div>
+      <div><b>The measuring is being taken away.</b> USDA ended its food security report after the 2024 numbers. What is no longer counted is easier to ignore.</div>
+      <div><b>The window is closing.</b> At the 2024 rate, the carbon budget for 1.5°C runs out in about three years from the start of 2025.</div>
+      <div><b>Channels take years to build.</b> The moment they are needed is not the moment to begin.</div>
     </div>
-    <h3 style="margin-top:16px">What a new direction asks</h3>
-    <p>Adjustment is not repair. The new direction is a turn away from one-way channels, beginning now, in our own lives.</p>
+    <h3 style="margin-top:16px">Sources</h3>
+    <div id="srcs"></div>
+  </section>
+
+  <section class="part sheet" data-part-of="direction" aria-label="A new direction">
+    <h2>What a new direction asks</h2>
+    <p>Adjustment is not repair. A gentler way of taking is still taking. The new direction is a turn away from one-way channels, beginning now, in our own lives.</p>
     <ol class="moves">
       <li><span><b>Name the channel.</b> Say plainly which way it flows, in each case.</span></li>
       <li><span><b>Withdraw where you really can.</b> Hold less that ties your welfare to someone else's loss.</span></li>
       <li><span><b>Open or join a channel that runs both ways.</b> Mutual aid, LANDBACK, showing up for work, by invitation, and staying.</span></li>
     </ol>
+    <p style="margin-top:12px"><i>It matters little what we say we believe while our lives still run on the arrangement that produces the suffering we say we oppose.</i></p>
   </section>
   <footer>From <i>Three Concerns About Friends</i>, Expanded Edition, by Jeff Kisling, member of Bear Creek Meeting, Iowa Yearly Meeting (Conservative). Speaks for no meeting or organization.</footer>
 </div>
@@ -293,11 +321,11 @@ function drawExtraction(id){
   // homes and people with empty bowls
   HX_X.forEach((h,i)=>{ const y=gyX(h); s+=`<g data-part="home" filter="url(#${id}-clay)">${house(id,h,y)}</g><g class="p-poverty" data-part="bowls" filter="url(#${id}-clay)">${person(h+22,gyX(h+22),i,{bowl:1,slump:1})}</g>`; });
   s+=label(512,TOP-104,"The few");
-  s+=label(530,TOP-50,"Goods held behind money",'start',C.poverty);
-  s+=label(450,BASE+50,"Land enclosed",'middle',C.freedom);
-  s+=label(30,BASE+38,"Fields taken from every home",'start',C.freedom);
-  s+=label(630,gyX(630)-84,"Force",'middle',C.violence);
-  s+=label(870,BASE+38,"Empty bowls at home",'end',C.poverty);
+  s+=`<g class="p-poverty">`+label(530,TOP-50,"Goods held behind money",'start',C.poverty)+`</g>`;
+  s+=`<g class="p-freedom">`+label(450,BASE+50,"Land enclosed",'middle',C.freedom)+`</g>`;
+  s+=`<g class="p-freedom">`+label(30,BASE+38,"Fields taken from every home",'start',C.freedom)+`</g>`;
+  s+=`<g class="p-violence">`+label(630,gyX(630)-84,"Force",'middle',C.violence)+`</g>`;
+  s+=`<g class="p-poverty">`+label(870,BASE+38,"Empty bowls at home",'end',C.poverty)+`</g>`;
   return s+`</svg>`;
 }
 function drawReciprocity(id){
@@ -441,42 +469,76 @@ const CONCERNS={
   freedom:{t:"2. On who gets to be free",q:"The land this Meeting sits on, and much of the comfort that makes our worship possible, came from dispossession: Indigenous land taken, Black labor stolen or underpaid, and a legal and economic order built to keep it that way.",x:"Land and labor taken. The fields are enclosed into one estate inside the wall.",h:"Deeds and \"help.\" A claim proved by seals and witnesses looks lawful.",r:"LANDBACK, and showing up to work by invitation. The fields return to the homes as a commons.",qq:"We know there are millions suffering an economic draft: from student debt, from needing a job because of its health benefits, or from a lack of economic opportunity that leads to the armed forces."},
   violence:{t:"3. On the violence holding it all up",q:"The violence that built this order never stopped; it just changed uniforms: police, prisons, borders, deportations, enforcing who may have what and who may not. Quaker neutrality in front of that enforcement isn't peace.",x:"Force that keeps the taking in place. Armed guards and barbed wire hold the estate and the peak.",h:"Neutrality. People like me rarely see the force, because it is almost never aimed at us.",r:"Active objection: name the channel, withdraw where you can, and open or join a channel that runs both ways.",qq:"The scenes of armed repression and deportation are horrifying to watch. We know where this is likely to go. How can we say we are a peaceful people if we simply watch?"}
 };
-let state="x", focus="", part=null;
-const panels=document.getElementById('panels'), card=document.getElementById('card');
-function render(){
-  const x=`<figure><figcaption class="cap x">Extraction</figcaption>${drawExtraction('dx')}</figure>`;
-  const r=`<figure><figcaption class="cap r">Reciprocity</figcaption>${drawReciprocity('dr')}</figure>`;
-  panels.innerHTML = state==='x'?x : state==='r'?r : x+r;
-  panels.className='panels'+(state==='b'?' both':'')+(focus?' f-'+focus:'');
-  panels.querySelectorAll('[data-part]').forEach(g=>{
+
+function wire(container, onSel, selected){
+  container.querySelectorAll('[data-part]').forEach(g=>{
     g.setAttribute('tabindex','0'); g.setAttribute('role','button');
-    const sel=()=>{ part=g.dataset.part; renderCard(); panels.querySelectorAll('[data-part]').forEach(o=>o.classList.toggle('sel',o.dataset.part===part)); };
+    const sel=()=>{ onSel(g.dataset.part); container.querySelectorAll('[data-part]').forEach(o=>o.classList.toggle('sel',o.dataset.part===g.dataset.part)); };
     g.addEventListener('click',sel); g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); sel(); } });
-    if(g.dataset.part===part) g.classList.add('sel');
+    if(g.dataset.part===selected) g.classList.add('sel');
   });
+}
+function partHTML(p){ if(!p||!PARTS[p]) return ''; const [t,d,c]=PARTS[p]; return `<div class="cap" style="color:${c?'var(--'+c+')':'var(--ink-2)'}">Selected</div><h2>${t}</h2><p>${d}</p>`; }
+
+/* Panel 1: extraction and reciprocity */
+let state="x", fpart=null;
+const fp=document.getElementById('flowpanels'), fc=document.getElementById('flowcard');
+function renderFlow(){
+  const x=`<figure><figcaption class="cap x">Extraction</figcaption>${drawExtraction('fx')}</figure>`;
+  const r=`<figure><figcaption class="cap r">Reciprocity</figcaption>${drawReciprocity('fr')}</figure>`;
+  fp.innerHTML = state==='x'?x : state==='r'?r : x+r;
+  fp.className='panels'+(state==='b'?' both':'');
+  wire(fp, p=>{ fpart=p; renderFlowCard(); }, fpart);
   document.querySelectorAll('[data-s]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===state));
-  document.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===focus));
-  renderCard();
+  renderFlowCard();
 }
-function renderCard(){
-  let h='';
-  if(part && PARTS[part]){ const [t,d,c]=PARTS[part]; h+=`<div class="cap" style="color:${c?'var(--'+c+')':'var(--ink-2)'}">Selected</div><h2>${t}</h2><p>${d}</p><hr>`; }
-  if(focus){ const c=CONCERNS[focus];
-    h+=`<div class="cap" style="color:var(--${focus})">The concern</div><h2>${c.t}</h2><blockquote style="border-color:var(--${focus})">${c.q}</blockquote>
-    <h3>What is taken</h3><p>${c.x}</p><h3>How it is hidden</h3><p>${c.h}</p><h3>What answers it</h3><p>${c.r}</p><h3>Query</h3><p><i>${c.qq}</i></p>`;
-  } else {
-    h+=`<div class="cap" style="color:var(--ink-2)">How to read it</div><h2>Which way does it flow?</h2>
-    <p><b>Extraction</b> is taking, with nothing fair coming back. <b>Reciprocity</b> is giving and receiving, both ways, and keeping it going.</p>
-    <p>In extraction, each home's crates go up to a storehouse on the peak, its fields are taken (bare dirt is left) and fenced into one estate, and armed guards stand at the wire. In reciprocity, the peak comes down, the wall is gone, and crates and fields are at every home.</p>
-    <p>Choose a concern above to follow it, or select any part of the drawing.</p>`;
+function renderFlowCard(){
+  let h=partHTML(fpart);
+  if(!h){
+    h = state==='r'
+      ? `<div class="cap" style="color:var(--blue)">How to read it</div><h2>Reciprocity</h2><p>The peak is gone, and so are the warehouse, the fence and the guards. Each home has its own fields and its own food and goods. Neighbors hand things to each other, and the arrows run both ways.</p>`
+      : state==='b'
+      ? `<div class="cap" style="color:var(--ink-2)">How to read it</div><h2>The same community, two ways</h2><p>Above, everything flows one way: up, to the few. Below, it flows around, among neighbors, and keeps going.</p>`
+      : `<div class="cap" style="color:var(--violence)">How to read it</div><h2>Extraction</h2><p>Brown arrows carry each home's food and goods up to a locked warehouse on the peak. The fields around every home are taken and fenced into one estate. Riot police stand guard at the wire. People at home are left on bare dirt, holding empty bowls.</p>`;
   }
-  card.innerHTML=h;
+  fc.innerHTML=h;
 }
-document.querySelectorAll('[data-s]').forEach(b=>b.addEventListener('click',()=>{ state=b.dataset.s; part=null; render(); }));
-document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>{ focus=b.dataset.f; render(); }));
+document.querySelectorAll('[data-s]').forEach(b=>b.addEventListener('click',()=>{ state=b.dataset.s; fpart=null; renderFlow(); }));
+
+/* Panel 2: the three concerns */
+let focus="poverty", cpart=null;
+const cp=document.getElementById('concernpanels'), cc=document.getElementById('concerncard');
+function renderConcerns(){
+  cp.innerHTML=`<figure>${drawExtraction('cx')}</figure>`;
+  cp.className='panels f-'+focus;
+  wire(cp, p=>{ cpart=p; renderConcernCard(); }, cpart);
+  document.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===focus));
+  renderConcernCard();
+}
+function renderConcernCard(){
+  const c=CONCERNS[focus];
+  let h=partHTML(cpart); if(h) h+='<hr>';
+  h+=`<div class="cap" style="color:var(--${focus})">The concern</div><h2>${c.t}</h2><blockquote style="border-color:var(--${focus})">${c.q}</blockquote>
+    <div class="trio"><div><h3>What is taken</h3><p>${c.x}</p></div><div><h3>How it is hidden</h3><p>${c.h}</p></div><div><h3>What answers it</h3><p>${c.r}</p></div></div>
+    <h3>Query</h3><p><i>${c.qq}</i></p>`;
+  cc.innerHTML=h;
+}
+document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>{ focus=b.dataset.f; cpart=null; renderConcerns(); }));
+
+/* Panel 3 */
 document.getElementById('tiemap').innerHTML=drawTieMap();
-document.getElementById('ties').innerHTML=whyNowHTML()+'<h3 style="margin-top:16px">Sources</h3>'+sourcesHTML();
-render();
+document.getElementById('ties').innerHTML=whyNowHTML();
+document.getElementById('srcs').innerHTML=sourcesHTML();
+
+/* Tabs */
+const tabs=['flow','concerns','why-now','direction'];
+function show(){
+  let t=location.hash.slice(1); if(!tabs.includes(t)) t='flow';
+  document.querySelectorAll('.part').forEach(p=>{ p.hidden = p.dataset.partOf!==t; });
+  document.querySelectorAll('.tabs a').forEach(a=>{ const on=a.dataset.tab===t; a.classList.toggle('on',on); if(on) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+}
+window.addEventListener('hashchange',show);
+renderFlow(); renderConcerns(); show();
 })();
 </script>
 
